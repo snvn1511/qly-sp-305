@@ -25,9 +25,36 @@ const ListProduct = (props) => {
     }
 
     const renderProduct = ({ item }) => {
+        // viết chức năng xóa ở đây 
+        const xoaSP = () => {
+            // link xóa
+            let url_api_del = 'https://63db6922a3ac95cec5a10e24.mockapi.io/demo-api/sanpham/' + item.id;
+
+            fetch(url_api_del, {
+                method: 'DELETE',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
+                .then((res) => {
+                    if (res.status == 200){
+                        alert("Đã xóa");
+                        getListPro();
+                    }
+                       
+                })
+                .catch((ex) => {
+                    console.log(ex);
+                });
+
+        }
+
+
         return (
             <View style={st.itemPro}>
                 <Text>Tên SP: {item.name} -- Giá {item.price} </Text>
+                <Button title="Xóa" onPress={xoaSP} />
             </View>
         );
     }
