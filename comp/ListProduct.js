@@ -55,6 +55,10 @@ const ListProduct = (props) => {
             <View style={st.itemPro}>
                 <Text>Tên SP: {item.name} -- Giá {item.price} </Text>
                 <Button title="Xóa" onPress={xoaSP} />
+
+                <Button title="Sửa" onPress={ ()=>{
+                    props.navigation.navigate('UpdateProduct',{item_sp:item})
+                }} />
             </View>
         );
     }

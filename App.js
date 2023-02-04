@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ListProduct from './comp/ListProduct';
 import AddProduct from './comp/AddProduct';
-
+import UpdateProduct from './comp/UpdateProduct';
 const StackMain = createNativeStackNavigator();
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
       <StackMain.Navigator initialRouteName='Home'>
         <StackMain.Screen name='Home' component={ListProduct} options={{ title: 'Danh sách SP'}} />
         <StackMain.Screen name='ManHinhThem' component={AddProduct} options={{ title: 'Thêm SP' }} />
-        {/* viết tiếp các màn hình khác vào đây */}
+        <StackMain.Screen name='UpdateProduct' component={UpdateProduct} options={{ title: 'Sửa SP' }} />
       </StackMain.Navigator>
     </NavigationContainer> 
   );
